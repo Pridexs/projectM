@@ -21,11 +21,10 @@ And here is a picture of how I was building the levels (I was using Tiled to gen
 
 ### More info
 
-I do not intend to continue this, like I said at the beggining I just wanted to post this for future reference.
-
-If you have any doubts about a specific part of the code I will gladly try and remember why/how I did something, but this implementation is not the best, but can be used as a starting point (possibly).
-
-The compiled libraries (SFML, tmxloader, etc) are obviously not included in the repo, if you want to actually compile these, go and find them on their specific websites.
+* I do not intend to continue this, like I said at the beggining I just wanted to post this for future reference.
+* If you have any doubts about a specific part of the code I will gladly try and remember why/how I did something, but this implementation is not the best, but can be used as a starting point (possibly).
+* The compiled libraries (SFML, tmxloader, etc) are obviously not included in the repo, if you want to actually compile these, go and find them on their specific websites.
+* I used Visual Studio so there is some compiler specific things in the code.
 
 # Credits
 
