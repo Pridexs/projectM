@@ -4,6 +4,8 @@ This was a project that I had 2 years ago to make a simple 2D side-scroller usin
 
 The name "projectM" stand for "Project Mario", I am not the best with coming up with names and I just wanted to do a simple game and Mario came up to my head.
 
+The indentation is a bit messed up due to using tabs and spaces (I was not aware at the time that Visual Studio was using both, and it gets a little bit messed up while viewing in GitHub. If you open in a text editor with tabspace 4 it should be okay. I will fix this once I have time)
+
 ### Dependecies
 1. SFML
 2. box2D
