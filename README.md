@@ -13,11 +13,11 @@ The name "projectM" stand for "Project Mario", I am not the best with coming up 
 
 Here is a .gif that I made for the SFML forums just to show how the game was at that point.
 
-![projectM gif](link "Project M gif")
+![projectM gif](https://github.com/Pridexs/projectM/blob/master/images/projectm.gif?raw=true "Project M gif")
 
 And here is a picture of how I was building the levels (I was using Tiled to generate them)
 
-![project m and tiled](link "Project M and Tiled")
+![project m and tiled](https://github.com/Pridexs/projectM/blob/master/images/projectm_tileeditor.jpg?raw=true "Project M and Tiled")
 
 ### More info
 
