@@ -17,15 +17,15 @@
 
 int main()
 {
-	try
-	{
-		Application game;
-		game.run();
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "\nEXCEPTION: " << e.what() << std::endl;
-	}
+    try
+    {
+        Application game;
+        game.run();
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "\nEXCEPTION: " << e.what() << std::endl;
+    }
 
-	return 0;
+    return 0;
 }

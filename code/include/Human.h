@@ -20,51 +20,51 @@
 class Human : public Entity
 {
 public:
-	enum Type
-	{
-		Player,
-		TypeCount,
-	};
+    enum Type
+    {
+        Player,
+        TypeCount,
+    };
 
 public:
-	explicit				Human(Type type, const TextureHolder& textures);
+    explicit				Human(Type type, const TextureHolder& textures);
 
-	virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
-	virtual void			updateCurrent(sf::Time dt);
+    virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void			updateCurrent(sf::Time dt);
 
-	virtual void			addEntityToWorld(b2World& world);
+    virtual void			addEntityToWorld(b2World& world);
 
-	virtual unsigned int	getCategory() const;
+    virtual unsigned int	getCategory() const;
 
-	virtual bool			isDestroyed() const;
-	virtual bool			isMarkedForRemoval() const;
+    virtual bool			isDestroyed() const;
+    virtual bool			isMarkedForRemoval() const;
 
-	void					jump();
-	void					collectCoin();
+    void					jump();
+    void					collectCoin();
 
-	bool*					getIsGrounded();
-	void					inGround(bool grounded);
-
-private:
-	
+    bool*					getIsGrounded();
+    void					inGround(bool grounded);
 
 private:
-	Type					mType;
-	sf::Sprite				mSprite;
-	b2Body*					mBody;
+    
 
-	sf::Clock				jumpTimer;
+private:
+    Type					mType;
+    sf::Sprite				mSprite;
+    b2Body*					mBody;
 
-	bool					mGrounded;
-	bool					mDead;
+    sf::Clock				jumpTimer;
 
-	//Animation
-	sf::IntRect				mTextureSize;
-	unsigned int			mWalkFrame;
-	sf::Clock				mWalkClock;
-	bool					mWalkingLeft;
+    bool					mGrounded;
+    bool					mDead;
 
-	float					playerSpeed;
+    //Animation
+    sf::IntRect				mTextureSize;
+    unsigned int			mWalkFrame;
+    sf::Clock				mWalkClock;
+    bool					mWalkingLeft;
+
+    float					playerSpeed;
 
 };
 

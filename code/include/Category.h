@@ -16,12 +16,12 @@
 
 namespace Category
 {
-	enum Type
-	{
-		None = 0,
-		Scene = 1 << 0,
-		PlayerHuman = 1 << 1,
-	};
+    enum Type
+    {
+        None = 0,
+        Scene = 1 << 0,
+        PlayerHuman = 1 << 1,
+    };
 }
 
 #endif

@@ -19,13 +19,13 @@
 class ContactListener : public b2ContactListener
 {
 public:
-	virtual void BeginContact(b2Contact* contact);
-	virtual void EndContact(b2Contact* contact);
+    virtual void BeginContact(b2Contact* contact);
+    virtual void EndContact(b2Contact* contact);
 
-	void		setFoot(bool* isGrounded);
+    void		setFoot(bool* isGrounded);
 
 private:
-	bool*		isGrounded;
+    bool*		isGrounded;
 };
 
 #endif

@@ -17,30 +17,30 @@
 
 namespace sf
 {
-	class Texture;
-	class Font;
+    class Texture;
+    class Font;
 }
 
 
 namespace Textures
 {
-	enum ID
-	{
-		Player,
-		Kib,
-		Sky,
-		Ground,
-		TileMap1,
-		PickupCoin,
-	};
+    enum ID
+    {
+        Player,
+        Kib,
+        Sky,
+        Ground,
+        TileMap1,
+        PickupCoin,
+    };
 }
 
 namespace Fonts
 {
-	enum ID
-	{
-		Main,
-	};
+    enum ID
+    {
+        Main,
+    };
 }
 
 template <typename Resource, typename Identifier>

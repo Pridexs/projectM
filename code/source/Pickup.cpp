@@ -16,17 +16,17 @@
 
 namespace
 {
-	std::vector<PickupData> Table = initializePickupData();
+    std::vector<PickupData> Table = initializePickupData();
 }
 
 Pickup::Pickup(Type type, const TextureHolder& textures)
-	: mType(type)
-	, mSprite(textures.get(Table[type].texture), Table[type].textureRect)
-	, mFrameTimer()
-	, mFrame(0)
-	, mPicked(false)
+    : mType(type)
+    , mSprite(textures.get(Table[type].texture), Table[type].textureRect)
+    , mFrameTimer()
+    , mFrame(0)
+    , mPicked(false)
 {
-	mFrameTimer.restart();
+    mFrameTimer.restart();
 }
 
 Pickup::~Pickup()
@@ -36,73 +36,73 @@ Pickup::~Pickup()
 
 void Pickup::apply(Human& player) const
 {
-	Table[mType].action(player);
+    Table[mType].action(player);
 }
 
 void Pickup::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(mSprite, states);
+    target.draw(mSprite, states);
 }
 
 void Pickup::addEntityToWorld(b2World& world)
 {
-	const float kPixelsPerMeter = 100.0f;
+    const float kPixelsPerMeter = 100.0f;
 
-	// Body Definition
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_staticBody;
-	bodyDef.position.Set(
-		this->getWorldPosition().x / kPixelsPerMeter,
-		this->getWorldPosition().y / kPixelsPerMeter
-		);	bodyDef.fixedRotation = true;
+    // Body Definition
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(
+        this->getWorldPosition().x / kPixelsPerMeter,
+        this->getWorldPosition().y / kPixelsPerMeter
+        );	bodyDef.fixedRotation = true;
 
-	this->mBody = world.CreateBody(&bodyDef);
+    this->mBody = world.CreateBody(&bodyDef);
 
-	// Shape Definition
-	b2PolygonShape Shape;
-	Shape.SetAsBox((Table[mType].textureRect.width / 2.f) / kPixelsPerMeter, (Table[mType].textureRect.height / 2.f) / kPixelsPerMeter);
+    // Shape Definition
+    b2PolygonShape Shape;
+    Shape.SetAsBox((Table[mType].textureRect.width / 2.f) / kPixelsPerMeter, (Table[mType].textureRect.height / 2.f) / kPixelsPerMeter);
 
-	// Fixture Definition
-	b2FixtureDef FixtureDef;
-	FixtureDef.density = 1.f;
-	FixtureDef.friction = 1.f;
-	FixtureDef.shape = &Shape;
-	FixtureDef.isSensor = true;
+    // Fixture Definition
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 1.f;
+    FixtureDef.friction = 1.f;
+    FixtureDef.shape = &Shape;
+    FixtureDef.isSensor = true;
 
-	b2Fixture* pickupFixture =  mBody->CreateFixture(&FixtureDef);
-	pickupFixture->SetUserData(this);
+    b2Fixture* pickupFixture =  mBody->CreateFixture(&FixtureDef);
+    pickupFixture->SetUserData(this);
 }
 
 void Pickup::setPicked()
 {
-	mPicked = true;
+    mPicked = true;
 }
 
 void Pickup::updateCurrent(sf::Time dt)
 {
-	if (mFrameTimer.getElapsedTime().asSeconds() > Table[mType].frameTime)
-	{
-		mFrame++;
-		if (mFrame >= Table[mType].pickupFrames.size())
-		{
-			mFrame = 0;
-		}
-		mSprite.setTextureRect(Table[mType].pickupFrames.at(mFrame));
-		mFrameTimer.restart();
-	}
+    if (mFrameTimer.getElapsedTime().asSeconds() > Table[mType].frameTime)
+    {
+        mFrame++;
+        if (mFrame >= Table[mType].pickupFrames.size())
+        {
+            mFrame = 0;
+        }
+        mSprite.setTextureRect(Table[mType].pickupFrames.at(mFrame));
+        mFrameTimer.restart();
+    }
 }
 
 bool Pickup::isDestroyed() const
 {
-	return mPicked;
+    return mPicked;
 }
 
 bool Pickup::isMarkedForRemoval() const
 {
-	return isDestroyed();
+    return isDestroyed();
 }
 
 void Pickup::removeWrecks()
 {
-	mBody->GetWorld()->DestroyBody(mBody);
+    mBody->GetWorld()->DestroyBody(mBody);
 }

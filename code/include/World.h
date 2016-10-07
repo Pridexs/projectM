@@ -37,43 +37,43 @@ class World : sf::NonCopyable
 {
 
 private:
-	enum Layer
-	{
-		Background,
-		Stage,
-		LayerCount
-	};
+    enum Layer
+    {
+        Background,
+        Stage,
+        LayerCount
+    };
 
 public:
-	explicit							World(sf::RenderWindow& window);
-	void								update(sf::Time dt);
-	void								draw();
+    explicit							World(sf::RenderWindow& window);
+    void								update(sf::Time dt);
+    void								draw();
 
-	CommandQueue&						getCommandQueue();
-
-private:
-	void								loadTextures();
-	void								buildScene();
+    CommandQueue&						getCommandQueue();
 
 private:
-	sf::RenderWindow&					mWindow;
-	sf::View							mWorldView;
-	TextureHolder						mTextures;
-	SceneNode							mSceneGraph;
-	std::array<SceneNode*, LayerCount>	mSceneLayers;
-	Human*								mPlayer;
+    void								loadTextures();
+    void								buildScene();
 
-	sf::IntRect						mWorldBounds;
-	sf::Vector2f						mSpawnPosition;
+private:
+    sf::RenderWindow&					mWindow;
+    sf::View							mWorldView;
+    TextureHolder						mTextures;
+    SceneNode							mSceneGraph;
+    std::array<SceneNode*, LayerCount>	mSceneLayers;
+    Human*								mPlayer;
 
-	b2World								mb2World;
-	ContactListener						mCL;
+    sf::IntRect						mWorldBounds;
+    sf::Vector2f						mSpawnPosition;
 
-	std::vector<std::unique_ptr<sf::Shape>> debugBoxes;
-	std::vector<DebugShape>					debugShapes;
-	std::map<b2Body*, sf::CircleShape> dynamicShapes;
+    b2World								mb2World;
+    ContactListener						mCL;
 
-	CommandQueue						mCommandQueue;
+    std::vector<std::unique_ptr<sf::Shape>> debugBoxes;
+    std::vector<DebugShape>					debugShapes;
+    std::map<b2Body*, sf::CircleShape> dynamicShapes;
+
+    CommandQueue						mCommandQueue;
 };
 
 #endif

@@ -25,22 +25,22 @@
 
 struct HumanData
 {
-	float						speed;
-	Textures::ID				texture;
-	sf::IntRect					textureRect;
-	std::vector<sf::IntRect>	walkFrames;
-	std::vector<sf::IntRect>	jumpFrames;
-	float						frameTime;
-	float						jumpInterval;
+    float						speed;
+    Textures::ID				texture;
+    sf::IntRect					textureRect;
+    std::vector<sf::IntRect>	walkFrames;
+    std::vector<sf::IntRect>	jumpFrames;
+    float						frameTime;
+    float						jumpInterval;
 };
 
 struct PickupData
 {
-	Textures::ID					texture;
-	sf::IntRect						textureRect;
-	std::vector<sf::IntRect>		pickupFrames;
-	float							frameTime;
-	std::function<void(Human&)>		action;
+    Textures::ID					texture;
+    sf::IntRect						textureRect;
+    std::vector<sf::IntRect>		pickupFrames;
+    float							frameTime;
+    std::function<void(Human&)>		action;
 };	
 
 std::vector<HumanData>			initializeHumanData();

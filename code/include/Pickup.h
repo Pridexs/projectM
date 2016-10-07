@@ -23,40 +23,40 @@ class Human;
 class Pickup : public Entity
 {
 public:
-	enum Type
-	{
-		Coin,
-		TypeCount
-	};
+    enum Type
+    {
+        Coin,
+        TypeCount
+    };
 
 public:
-							Pickup(Type type, const TextureHolder& textures);
-							~Pickup();
+                            Pickup(Type type, const TextureHolder& textures);
+                            ~Pickup();
 
-	void					apply(Human& player) const;
+    void					apply(Human& player) const;
 
-	virtual bool			isDestroyed() const;
-	virtual bool			isMarkedForRemoval() const;
+    virtual bool			isDestroyed() const;
+    virtual bool			isMarkedForRemoval() const;
 
-	virtual void					removeWrecks();
+    virtual void					removeWrecks();
 
-	void					addEntityToWorld(b2World& world);
-	void					setPicked();
+    void					addEntityToWorld(b2World& world);
+    void					setPicked();
 
 protected:
-	virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
-	virtual void			updateCurrent(sf::Time dt);
+    virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void			updateCurrent(sf::Time dt);
 
 private:
 
-	b2Body*					mBody;
-	Type					mType;
-	sf::Sprite				mSprite;
+    b2Body*					mBody;
+    Type					mType;
+    sf::Sprite				mSprite;
 
-	sf::Clock				mFrameTimer;
-	unsigned int			mFrame;
+    sf::Clock				mFrameTimer;
+    unsigned int			mFrame;
 
-	bool					mPicked;
+    bool					mPicked;
 };
 
 #endif
